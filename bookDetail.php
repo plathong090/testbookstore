@@ -45,7 +45,6 @@ if (!$book) {
 
 <body>
     <center>
-
         <br>
         <h3>รายละเอียดหนังสือ</h3><br>
 
@@ -100,6 +99,11 @@ if (!$book) {
                     ไม่มีรูปภาพ
                     <?php } ?>
                 </td>
+            </tr>
+
+            <tr>
+                <td><b>วันที่จัดเก็บหนังสือ</b></td>
+                <td><?php echo htmlspecialchars($book['BookDate']); ?></td>
             </tr>
 
         </table>
