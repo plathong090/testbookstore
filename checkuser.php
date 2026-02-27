@@ -6,19 +6,22 @@ $Password = $_POST['Password'];
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$dbName = "testphp";
-$conn =mysqli_connect($hostname, $username, $password);
+$dbname = "testphp";
+
+$conn = mysqli_connect($hostname, $username, $password);
 
 if (!$conn)
-    die("ไม่สํามํารถติดต่อกับ MySQL ได ้");
-mysqli_select_db($dbname, $conn) or die("ไม่สํามํารถเลือกฐํานข ้อมูล test ได ้");
-$sqltxt = "SELECT * FROM login where UserName = '$UserName'";
-$result = mysqli_query($sqltxt, $conn);
+    die("ติดต่อกับ MySQL ไม่ได ้");
+mysqli_select_db($conn, $dbname) or die("ไม่สํามํารถเลือกฐํานข ้อมูล test ได ้");
+
+$sqltxt = "SELECT * FROM login where Username= '$UserName'";
+$result = mysqli_query($conn, $sqltxt);
+
 $rs = mysqli_fetch_array($result);
-if ($rs) // พบ Username
+if ($rs)
 {
     if ($rs['Password'] == $Password) {
-        session_register("UserName");
+        $_SESSION['UserName'] = $UserName;
         header("Location: welcome.php?UserName=$UserName");
     } else {
         echo "<br>Password not match.";
