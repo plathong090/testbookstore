@@ -2,7 +2,7 @@
 $bookId = $_REQUEST['bookId'];
 $hostname = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbName = "testphp";
 $conn = mysqli_connect($hostname, $username, $password);
 if (!$conn)
