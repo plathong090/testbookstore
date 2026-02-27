@@ -4,7 +4,7 @@ $UserName = $_GET['UserName'];
 if ($UserName == $_SESSION['UserName']) {
     $hostname = "localhost";
     $username = "root";
-    $password = "";
+    $password = "root";
     $dbname = "testphp";
     $conn = mysqli_connect($hostname, $username, $password);
     if (!$conn)

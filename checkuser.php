@@ -5,7 +5,7 @@ $Password = $_POST['Password'];
 
 $hostname = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "testphp";
 
 $conn = mysqli_connect($hostname, $username, $password);
@@ -14,7 +14,7 @@ if (!$conn)
     die("ติดต่อกับ MySQL ไม่ได ้");
 mysqli_select_db($conn, $dbname) or die("ไม่สํามํารถเลือกฐํานข ้อมูล test ได ้");
 
-$sqltxt = "SELECT * FROM login where Username= '$UserName'";
+$sqltxt = "SELECT * FROM login where Username = '$UserName'";
 $result = mysqli_query($conn, $sqltxt);
 
 $rs = mysqli_fetch_array($result);
