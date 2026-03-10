@@ -41,14 +41,21 @@ if (!$book) {
 <head>
     <meta charset="UTF-8">
     <title>รายละเอียดหนังสือ</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <center>
+    <nav>
+        <a href="introduce.php">ข้อมูลส่วนตัว</a>
+        <a href="bookList1.php">รายชื่อหนังสือ</a>
+        <a href="logout.php">ออกจากระบบ</a>
+    </nav>
+    <div class="container">
         <br>
         <h3>รายละเอียดหนังสือ</h3><br>
 
-        <table width="600" border="1" cellpadding="8">
+        <table class="detail-table">
 
             <tr>
                 <td width="200"><b>รหัสหนังสือ</b></td>
@@ -109,9 +116,9 @@ if (!$book) {
         </table>
 
         <br><br>
-        <a href="bookList1.php">กลับหน้า bookList1.php</a>
+        <button onclick="location.href='bookList1.php'">กลับหน้า bookList1.php</button>
 
-    </center>
+    </div>
 </body>
 
 </html>

@@ -10,18 +10,14 @@ if (!$conn) {
 }
 mysqli_set_charset($conn, "utf8mb4");
 
-/* =========================
-   รับค่า BookID จากหน้า list
-========================= */
+/* รับค่า BookID จากหน้า list */
 $bookId = isset($_GET['bookId']) ? $_GET['bookId'] : '';
 
 if ($bookId == '') {
     die("ไม่พบรหัสหนังสือ");
 }
 
-/* =========================
-   ดึงข้อมูลหนังสือ
-========================= */
+/* ดึงข้อมูลหนังสือ*/
 $sql = "SELECT * FROM book WHERE BookID='$bookId'";
 $result = mysqli_query($conn, $sql);
 
@@ -35,9 +31,6 @@ if (!$book) {
     die("ไม่พบข้อมูลหนังสือ");
 }
 
-/* =========================
-   dropdown ประเภทหนังสือ
-========================= */
 function getTypeSelect($selected = '')
 {
     global $conn;
@@ -54,9 +47,6 @@ function getTypeSelect($selected = '')
     }
 }
 
-/* =========================
-   dropdown สถานะหนังสือ
-========================= */
 function getStatusSelect($selected = '')
 {
     global $conn;
@@ -80,16 +70,26 @@ function getStatusSelect($selected = '')
 <head>
     <meta charset="UTF-8">
     <title>แก้ไขข้อมูลหนังสือ</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <center>
+    <nav>
+        <a href="introduce.php">ข้อมูลส่วนตัว</a>
+        <a href="bookList1.php">รายชื่อหนังสือ</a>
+        <a href="logout.php">ออกจากระบบ</a>
+    </nav>
 
+    <br><br>
+    <div class="container">
+
+        <a href="bookList1.php">ย้อนกลับ</a>
         <form method="post" action="bookUpdate.php" enctype="multipart/form-data">
 
             <br><br>
 
-            <table width="700" border="1" bgcolor="#ffffff">
+            <table class="edit-table">
                 <tr>
                     <th colspan="2">แก้ไขข้อมูลหนังสือ</th>
                 </tr>
@@ -182,11 +182,7 @@ function getStatusSelect($selected = '')
             <input type="reset" value="ยกเลิก">
 
         </form>
-
-        <br><br>
-        <a href="bookList1.php">กลับหน้า bookList1.php</a>
-
-    </center>
+    </div>
 </body>
 
 </html>

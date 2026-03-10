@@ -60,16 +60,23 @@ function getStatusSelect()
 <head>
     <meta charset="UTF-8">
     <title>เพิ่มข้อมูลหนังสือ</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <center>
+    <nav>
+        <a href="introduce.php">ข้อมูลส่วนตัว</a>
+        <a href="bookList1.php">รายชื่อหนังสือ</a>
+        <a href="logout.php">ออกจากระบบ</a>
+    </nav>
+    <div class="container">
 
+        <button onclick="window.location.href='bookList1.php'">ย้อนกลับ</button>
         <form enctype="multipart/form-data" name="save" method="post" action="bookInsert2.php">
 
             <br><br>
 
-            <table width="700" border="1" bgcolor="#ffffff">
+            <table class="edit-table">
                 <tr>
                     <th colspan="2" height="21">เพิ่มข้อมูลหนังสือ</th>
                 </tr>
@@ -77,14 +84,14 @@ function getStatusSelect()
                 <tr>
                     <td width="200">รหัสหนังสือ :</td>
                     <td width="400">
-                        <input type="text" name="bookId" size="10" maxlength="5" required>
+                        <input type="text" name="bookId" maxlength="5" required>
                     </td>
                 </tr>
 
                 <tr>
                     <td>ชื่อหนังสือ :</td>
                     <td>
-                        <input type="text" name="bookName" size="50" maxlength="50" required>
+                        <input type="text" name="bookName" maxlength="50" required>
                     </td>
                 </tr>
 
@@ -109,7 +116,7 @@ function getStatusSelect()
                 <tr>
                     <td>สำนักพิมพ์ :</td>
                     <td>
-                        <input type="text" name="Publish" maxlength="25" size="20">
+                        <input type="text" name="Publish" maxlength="25">
                     </td>
                 </tr>
 
@@ -148,15 +155,11 @@ function getStatusSelect()
             </table>
 
             <br>
-            <input type="submit" name="submit" value="บันทึกข้อมูล" style="cursor:pointer;">
-            <input type="reset" name="reset" value="ยกเลิก" style="cursor:pointer;">
+            <input type="submit" name="submit" value="บันทึกข้อมูล">
+            <input type="reset" name="reset" value="ยกเลิก">
 
         </form>
-
-        <br><br>
-        <a href="bookList1.php">กลับหน้ารายการหนังสือ</a>
-
-    </center>
+    </div>
 </body>
 
 </html>
